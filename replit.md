@@ -1,45 +1,44 @@
-# [Project name]
+# BlockOut
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A Flutter Android app that lets people select installed apps and block them during a timed focus session.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `cd artifacts/blockout && flutter pub get && flutter run` — run BlockOut on an Android device or emulator with Flutter installed
+- `cd artifacts/blockout && flutter analyze` — analyze the Flutter app
+- `pnpm run typecheck` — typecheck the workspace's TypeScript packages; this does not analyze Flutter code
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Flutter and Dart; Android app blocking uses a native Accessibility Service
+- Android platform code uses Kotlin and Gradle
+- The surrounding Replit workspace uses pnpm and TypeScript for its shared services
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/blockout/` — Flutter app and Android native implementation
+- `artifacts/blockout/lib/` — timer, app selection, and Flutter UI
+- `artifacts/blockout/android/` — installed-app discovery, timer persistence, and blocking screen
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Selected app names and active session deadlines are stored locally on Android; no backend is needed.
+- Blocking uses an Accessibility Service to detect a selected app opening and show a native blocking screen.
+- The Android app picker only lists apps with a launcher activity.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Users choose installed Android apps, select a focus duration, and end the session early or wait for the timer to finish.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- The user explicitly requested a Flutter mobile app.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- The Flutter project requires the Flutter SDK and Android toolchain; this workspace does not provide an in-Replit Flutter preview.
+- Android users must enable BlockOut in Accessibility settings for app blocking to work.
 
 ## Pointers
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- `artifacts/blockout/README.md` — Flutter setup, app permissions, and platform scope

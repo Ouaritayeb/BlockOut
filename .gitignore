@@ -5,6 +5,18 @@ dist
 tmp
 out-tsc
 *.tsbuildinfo
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+build/
+artifacts/blockout/android/.gradle/
+artifacts/blockout/android/local.properties
+artifacts/blockout/android/app/debug/
+artifacts/blockout/android/app/profile/
+artifacts/blockout/android/app/release/
+*.iml
+.flutter/
 .expo
 .expo-shared
 

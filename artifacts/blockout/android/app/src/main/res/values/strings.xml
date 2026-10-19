@@ -1,0 +1,4 @@
+<resources>
+    <string name="accessibility_service_label">BlockOut App Blocking</string>
+    <string name="accessibility_service_description">BlockOut detects when a selected app opens during a focus session and shows a reminder screen. It does not read screen contents or perform gestures.</string>
+</resources>
