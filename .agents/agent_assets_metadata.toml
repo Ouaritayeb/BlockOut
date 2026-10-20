@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "oM2VPlf385vGf7axSHjWy"
+uri = "file://generated-artifacts/blockout-source.zip"
+type = "unspecified"
+title = "BlockOut Flutter source"
+description = "Download the complete BlockOut Flutter and Android source project as a ZIP archive."
+logical_id = "f35ea5bb-91b7-4f66-af53-1a43dc207ef1"
+content_hash = "sha256:e78fe0daef4a495e492f91080432236af29cedf51e9ab3e2f0a1e83b7e7c31ab"
+size = 67392
+mtime_ms = 1792521652448
+storage_uri = "gcs://replit-rams-assets-reed/rams/assets/repl:a3623be2-0039-431f-92a1-34808ab3ff3e/f35ea5bb-91b7-4f66-af53-1a43dc207ef1/ccfa3021-825d-42b3-a155-5c527fe984dc"
+storage_version_token = "1792521657396818"
+content_type = "application/octet-stream"
