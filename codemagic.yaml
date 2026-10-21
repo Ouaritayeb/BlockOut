@@ -11,6 +11,6 @@ workflows:
           echo "Found project at: $PROJECT_DIR"
           cd $PROJECT_DIR
           flutter pub get
-          flutter build apk --release --no-pub
+          flutter build apk --release --android-skip-build-dependency-validation
     artifacts:
       - "**/app-release.apk"
