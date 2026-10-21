@@ -7,13 +7,10 @@ workflows:
     scripts:
       - name: Build Flutter APK Automatically
         script: |
-          # البحث التلقائي عن مسار المشروع الذي يحتوي على ملف pubspec.yaml
           PROJECT_DIR=$(dirname $(find . -name "pubspec.yaml" | head -n 1))
           echo "تم العثور على المشروع في المسار: $PROJECT_DIR"
-          
-          # الانتقال للمجلد وتشغيل الأوامر
           cd $PROJECT_DIR
           flutter pub get
-          flutter build apk --release
+          flutter build apk --release --no-pub
     artifacts:
       - "**/app-release.apk"
