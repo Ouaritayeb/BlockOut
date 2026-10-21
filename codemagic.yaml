@@ -3,7 +3,7 @@ workflows:
     name: Build Android APK
     max_build_duration: 30
     environment:
-      flutter: 3.3.10
+      flutter: stable
     scripts:
       - name: Build Flutter APK Automatically
         script: |
@@ -11,6 +11,6 @@ workflows:
           echo "Found project at: $PROJECT_DIR"
           cd $PROJECT_DIR
           flutter pub get
-          flutter build apk --release
+          flutter build apk --release --suppress-analytics
     artifacts:
       - "**/app-release.apk"
