@@ -2,13 +2,18 @@ workflows:
   build-apk:
     name: Build Android APK
     max_build_duration: 30
-    working_directory: artifacts/shade-lock/block_out
     environment:
       flutter: stable
     scripts:
-      - name: Get Flutter packages
-        script: flutter pub get
-      - name: Build APK
-        script: flutter build apk --release
+      - name: Build Flutter APK Automatically
+        script: |
+          # البحث التلقائي عن مسار المشروع الذي يحتوي على ملف pubspec.yaml
+          PROJECT_DIR=$(dirname $(find . -name "pubspec.yaml" | head -n 1))
+          echo "تم العثور على المشروع في المسار: $PROJECT_DIR"
+          
+          # الانتقال للمجلد وتشغيل الأوامر
+          cd $PROJECT_DIR
+          flutter pub get
+          flutter build apk --release
     artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
+      - "**/app-release.apk"
